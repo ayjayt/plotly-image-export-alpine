@@ -1,5 +1,7 @@
 FROM python:3.12-alpine
 
+RUN apk add --no-cache chromium
+
 RUN pip install plotly pandas kaleido==0.4.0rc1
 
 WORKDIR /app
