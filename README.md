@@ -3,5 +3,5 @@
 Run:
 
 ```shell
-docker compose run --rm app
+docker compose run --rm --build app
 ```
