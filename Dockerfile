@@ -1,7 +1,7 @@
-FROM python:3.12-alpine
+FROM python:3.13-alpine3.21
 
 RUN apk add --no-cache chromium
-RUN pip --no-cache-dir install plotly pandas kaleido==0.4.0rc3
+RUN pip --no-cache-dir install plotly pandas kaleido==1.0.0rc0 choreographer==0.99.7
 
 WORKDIR /app
 # create a user without a password
@@ -11,4 +11,4 @@ USER appuser
 
 COPY test.py /app/test.py
 
-ENTRYPOINT [ "python", "test.py" ]
+ENTRYPOINT [ "/bin/sh", "-c", "chromium --version && python test.py" ]
