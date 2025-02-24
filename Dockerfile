@@ -5,6 +5,7 @@ RUN pip --no-cache-dir install plotly pandas
 
 ARG kaleido_uri="git+https://github.com/plotly/kaleido@latest-tag#subdirectory=src/py"
 RUN pip install "kaleido>=v1.0.0" || pip install ${kaleido_uri}
+# RUN kaleido_get_chrome <-- asof today, doesn't support alpine/musl
 
 WORKDIR /app
 # create a user without a password
