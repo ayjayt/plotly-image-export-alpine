@@ -1,4 +1,10 @@
+import asyncio
+
 import plotly.express as px
+import kaleido
 
 fig = px.scatter(px.data.iris(), x="sepal_length", y="sepal_width", color="species")
-fig.write_image("/output/figure.png", engine="kaleido")
+
+asyncio.run(
+        kaleido.write_fig(fig, path="/output/figure.png")
+        )
